@@ -1,0 +1,97 @@
+# ============================================================
+# rule-providers —— 本地文件模式（type: file）
+# 把 __RULES_DIR__ 替换成本仓库的绝对路径，例如
+#   __RULES_DIR__ -> /Users/you/Documents/clash-rules
+# 优点：离线可用、改完立即生效、不受上游变动影响
+# ============================================================
+rule-providers:
+  reject:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/reject.yaml
+  private:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/private.yaml
+  openai:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/openai.yaml
+  anthropic:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/anthropic.yaml
+  youtube:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/youtube.yaml
+  netflix:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/netflix.yaml
+  spotify:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/spotify.yaml
+  telegram:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/telegram.yaml
+  twitter:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/twitter.yaml
+  google:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/google.yaml
+  github:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/github.yaml
+  microsoft:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/microsoft.yaml
+  apple:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/apple.yaml
+  gfw:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/gfw.yaml
+  cn-domain:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/cn-domain.yaml
+  telegramip:
+    type: file
+    behavior: ipcidr
+    format: yaml
+    path: __RULES_DIR__/ipcidr/telegramip.yaml
+  cn-ip:
+    type: file
+    behavior: ipcidr
+    format: yaml
+    path: __RULES_DIR__/ipcidr/cn-ip.yaml
+  applications:
+    type: file
+    behavior: classical
+    format: yaml
+    path: __RULES_DIR__/rules/applications.yaml
