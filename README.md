@@ -117,6 +117,43 @@ rules:
 
 > 注意：`rules/` 里的 `cn-domain.yaml`（11 万条）和 `gfw.yaml`（4400 条）不建议手改，改了就很难再跟上游合并。要加自己的规则请另建文件。
 
+## 当前状态（2026-10-27 已切换）
+
+主配置 `~/Library/Mobile Documents/com~apple~CloudDocs/Clash/config.yaml` 的 `rule-providers:` 已改为指向本仓库：
+
+- 格式：`type: http` + `format: yaml`（原来是 `format: mrs` 二进制）
+- URL：`https://raw.githubusercontent.com/cha0sal3r/clash-rules/main/...`
+- 缓存：`./ruleset/<name>.yaml`，`interval: 86400`（24h 检查一次）
+
+**备用 CDN**：若 `raw.githubusercontent.com` 被污染导致拉取失败，把各 `url` 换成
+`https://cdn.jsdelivr.net/gh/cha0sal3r/clash-rules@main/<path>`。
+两种地址都已实测可被内核直连拉取（18/18 全部加载）。
+
+### 同时修掉的 Apple 分流
+
+`rules:` 顶部新增 6 条直连规则（必须早于 `RULE-SET,apple,PROXY`）：
+
+```yaml
+  - DOMAIN-SUFFIX,apple.com.cn,DIRECT      # 国区域名
+  - DOMAIN-SUFFIX,icloud.com.cn,DIRECT     # iCloud 中国网关
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT    # APNs，必须直连
+  - DOMAIN-SUFFIX,apps.apple.com,DIRECT    # App Store 店面，含 amp-api.apps.apple.com
+  - DOMAIN-SUFFIX,itunes.apple.com,DIRECT  # 含 iosapps / sf-api-token-service 子域
+  - DOMAIN-SUFFIX,mzstatic.com,DIRECT      # 资源 CDN，国内有节点
+```
+
+起因：App Store 搜索报"无法连接"时，实测 Apple 全量流量（含 APNs 5223）都被 `RULE-SET,apple,PROXY` 送进了美国节点，而该组唯一的 Vmess 节点当时已宕机（延迟全 0）。
+
+**回退**：删掉这 6 行即恢复"Apple 全部走代理"。如果你的 Apple ID 是非国区、需要固定走代理访问对应店面，也应删掉 `apps.apple.com` / `itunes.apple.com` 两行（保留 `push.apple.com` 直连）。
+
+### 改完如何生效
+
+1. 改本仓库 → `git commit` → `git push`
+2. Clash Verge 里点「重载配置」（不会自动重载；重启应用也会应用）
+3. 内核在 `interval` 到期后才会重新拉取远端名单，重载只让**规则顺序**和本地缓存立即生效
+
+> 想改完立刻生效而不等 24h：Verge 的「配置 → 右键当前配置 → 更新」会强制重拉，或把 `interval` 临时调小。
+
 ## 注意
 
 - 这些名单只决定「命中哪条规则」，出口还取决于主配置里 `RULE-SET,<name>,<策略组>` 的写法，两边要一起看。
