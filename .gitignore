@@ -1,3 +1,4 @@
 *.secret.yaml
 .DS_Store
 config.backup.*.yaml
+backups/

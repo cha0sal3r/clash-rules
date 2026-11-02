@@ -1,7 +1,7 @@
 # ============================================================
 # rule-providers —— 本地文件模式（type: file）
 # 把 __RULES_DIR__ 替换成本仓库的绝对路径，例如
-#   __RULES_DIR__ -> /Users/you/Documents/clash-rules
+#   __RULES_DIR__ -> /Users/you/Development/Projects/clash-rules
 # 优点：离线可用、改完立即生效、不受上游变动影响
 # ============================================================
 rule-providers:

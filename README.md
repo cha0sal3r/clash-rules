@@ -63,7 +63,7 @@ clash-rules/
 把 `rule-providers.local.yaml` 里的 `__RULES_DIR__` 换成本仓库绝对路径，然后整段替换主配置里的 `rule-providers:`。
 
 ```yaml
-    path: /Users/you/Documents/clash-rules/rules/apple.yaml
+    path: /Users/you/Development/Projects/clash-rules/rules/apple.yaml
 ```
 
 - 改完名单直接在 Clash Verge 里「重载配置」即生效，不用等 `interval`
