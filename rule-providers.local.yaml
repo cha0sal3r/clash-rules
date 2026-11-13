@@ -95,3 +95,14 @@ rule-providers:
     behavior: classical
     format: yaml
     path: __RULES_DIR__/rules/applications.yaml
+
+  apple-direct:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/apple-direct.yaml
+  microsoft-proxy:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/microsoft-proxy.yaml

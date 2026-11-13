@@ -131,3 +131,18 @@ rule-providers:
     url: "__RAW_BASE__/rules/applications.yaml"
     path: ./ruleset/applications.yaml
     interval: 86400
+
+  apple-direct:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/apple-direct.yaml"
+    path: ./ruleset/apple-direct.yaml
+    interval: 86400
+  microsoft-proxy:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/microsoft-proxy.yaml"
+    path: ./ruleset/microsoft-proxy.yaml
+    interval: 86400

@@ -1,0 +1,19 @@
+# Apple 国内直连白名单：这些域名必须直连，不能被 apple.yaml 整体抓去代理
+# 起因：App Store 搜索 / macOS 系统更新走代理极慢甚至失败
+payload:
+  - +.apple.com.cn
+  - +.icloud.com.cn
+  - +.push.apple.com
+  - +.apps.apple.com
+  - +.itunes.apple.com
+  - +.mzstatic.com
+  - +.swcdn.apple.com
+  - +.swdist.apple.com
+  - +.swscan.apple.com
+  - +.mesu.apple.com
+  - +.oscdn.apple.com
+  - +.gdmf.apple.com
+  - +.gg.apple.com
+  - +.appldnld.apple.com
+  - +.cdn-apple.com
+  - +.aaplimg.com

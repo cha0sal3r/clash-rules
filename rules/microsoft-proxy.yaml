@@ -1,0 +1,13 @@
+# 微软「被墙例外」：microsoft.yaml 整体改直连后，这里列少量必须走代理的域名
+payload:
+  - +.onedrive.com
+  - +.1drv.ms
+  - +.onedrive.live.com
+  - +.copilot.microsoft.com
+  - +.sydney.bing.com
+  - +.global.bing.com
+  - +.www.bing.com
+  - +.www.msn.com
+  - +.twitonmsn.com
+  - +.xbox.com
+  - +.xboxlive.com
