@@ -17,3 +17,6 @@ payload:
   - +.appldnld.apple.com
   - +.cdn-apple.com
   - +.aaplimg.com
+  # captive portal 检测域名：必须直连，否则连酒店/机场 WiFi 后登录页不弹（被 apple.yaml 的 +.apple.com 抓去代理，代理返回 Success 导致误判）
+  - captive.apple.com
+  - gsp1.apple.com
