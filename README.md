@@ -55,6 +55,7 @@ clash-rules/
 | telegramip | ipcidr | 12 | geoip/telegram |
 | cn-ip | ipcidr | 10011 | geoip/cn |
 | applications | classical | 99 | Loyalsoldier/clash-rules |
+| zhihu-direct | domain | 2 | 自维护（知乎埋点/崩溃上报直连，见下文） |
 
 ## 挂载方式
 
@@ -153,6 +154,14 @@ rules:
 3. 内核在 `interval` 到期后才会重新拉取远端名单，重载只让**规则顺序**和本地缓存立即生效
 
 > 想改完立刻生效而不等 24h：Verge 的「配置 → 右键当前配置 → 更新」会强制重拉，或把 `interval` 临时调小。
+
+## 知乎埋点直连（2026-11-19）
+
+`rules/zhihu-direct.yaml`：`zhihu-web-analytics.zhihu.com` 与 `crash2.zhihu.com` 直连。
+
+起因：这两个域名走代理时被断连（`ERR_CONNECTION_CLOSED`），知乎 `zap.js` 埋点 SDK 在 Worker 里**无退避、无上限重试**，导致 tab 持续空转、内存上涨。直连后埋点正常上报，循环停止。
+
+主配置里对应 `RULE-SET,zhihu-direct,DIRECT` 放在 `prepend-rules` 最前，确保早于 `gfw` / `MATCH,PROXY`。
 
 ## 注意
 

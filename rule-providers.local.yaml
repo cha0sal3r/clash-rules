@@ -90,6 +90,11 @@ rule-providers:
     behavior: ipcidr
     format: yaml
     path: __RULES_DIR__/ipcidr/cn-ip.yaml
+  zhihu-direct:
+    type: file
+    behavior: domain
+    format: yaml
+    path: __RULES_DIR__/rules/zhihu-direct.yaml
   applications:
     type: file
     behavior: classical

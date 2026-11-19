@@ -1,0 +1,7 @@
+# 知乎埋点 / 崩溃上报直连
+# 起因：zhihu-web-analytics.zhihu.com 与 crash2.zhihu.com 走代理时被断连（ERR_CONNECTION_CLOSED），
+#      知乎 zap.js 埋点 SDK 在 Worker 里无退避重试，导致 tab 持续空转、内存上涨。
+# 处理：这两个域名直连，让埋点正常上报，重试循环自然停止。
+payload:
+  - zhihu-web-analytics.zhihu.com
+  - crash2.zhihu.com

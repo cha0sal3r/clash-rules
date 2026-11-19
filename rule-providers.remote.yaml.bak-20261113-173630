@@ -1,0 +1,133 @@
+# ============================================================
+# rule-providers —— 远程模式（type: http，指向你自己的 GitHub 仓库）
+# 把 __RAW_BASE__ 替换成 raw 地址前缀，例如
+#   __RAW_BASE__ -> https://raw.githubusercontent.com/yourname/clash-rules/main
+# 注意：仓库必须 public，Clash Verge 无法为 raw 请求附加鉴权头
+# ============================================================
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/reject.yaml"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/private.yaml"
+    path: ./ruleset/private.yaml
+    interval: 86400
+  openai:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/openai.yaml"
+    path: ./ruleset/openai.yaml
+    interval: 86400
+  anthropic:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/anthropic.yaml"
+    path: ./ruleset/anthropic.yaml
+    interval: 86400
+  youtube:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/youtube.yaml"
+    path: ./ruleset/youtube.yaml
+    interval: 86400
+  netflix:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/netflix.yaml"
+    path: ./ruleset/netflix.yaml
+    interval: 86400
+  spotify:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/spotify.yaml"
+    path: ./ruleset/spotify.yaml
+    interval: 86400
+  telegram:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/telegram.yaml"
+    path: ./ruleset/telegram.yaml
+    interval: 86400
+  twitter:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/twitter.yaml"
+    path: ./ruleset/twitter.yaml
+    interval: 86400
+  google:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/google.yaml"
+    path: ./ruleset/google.yaml
+    interval: 86400
+  github:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/github.yaml"
+    path: ./ruleset/github.yaml
+    interval: 86400
+  microsoft:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/microsoft.yaml"
+    path: ./ruleset/microsoft.yaml
+    interval: 86400
+  apple:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/apple.yaml"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+  gfw:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/gfw.yaml"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+  cn-domain:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/cn-domain.yaml"
+    path: ./ruleset/cn-domain.yaml
+    interval: 86400
+  telegramip:
+    type: http
+    behavior: ipcidr
+    format: yaml
+    url: "__RAW_BASE__/ipcidr/telegramip.yaml"
+    path: ./ruleset/telegramip.yaml
+    interval: 86400
+  cn-ip:
+    type: http
+    behavior: ipcidr
+    format: yaml
+    url: "__RAW_BASE__/ipcidr/cn-ip.yaml"
+    path: ./ruleset/cn-ip.yaml
+    interval: 86400
+  applications:
+    type: http
+    behavior: classical
+    format: yaml
+    url: "__RAW_BASE__/rules/applications.yaml"
+    path: ./ruleset/applications.yaml
+    interval: 86400

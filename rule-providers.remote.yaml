@@ -124,6 +124,13 @@ rule-providers:
     url: "__RAW_BASE__/ipcidr/cn-ip.yaml"
     path: ./ruleset/cn-ip.yaml
     interval: 86400
+  zhihu-direct:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "__RAW_BASE__/rules/zhihu-direct.yaml"
+    path: ./ruleset/zhihu-direct.yaml
+    interval: 86400
   applications:
     type: http
     behavior: classical
